@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- 注册Person -->
+    <bean id="myPerson" class="com.spring.di09.Person">
+    	<property name="pname" value="麻六"/>
+    	<!-- Person的年龄是某个范围内的随机数 -->
+    	<property name="page" value="#{T(java.lang.Math).random()*50}"/>
+    </bean>
+    
+    <!-- #{myPerson.pname}和#{myPerson.page}需要用到get方法 -->
+    <bean id="myStudent" class="com.spring.di09.Student" autowire="byType">
+    	<property name="name" value="#{myPerson.pname}"/>
+    	<!-- 将年龄限制在25之内 -->
+    	<property name="age" value="#{myPerson.page > 25 ? 25 : myPerson.page}"/>
+    </bean>
+</beans>

@@ -1,0 +1,79 @@
+/**
+ * 作者：樊钰丰
+ * 时间：2017.9.10
+ * 功能：切面PROJO类
+ */
+
+package com.aspectj.xml;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+
+/**
+ * 
+ * @author KevinSmith
+ * 后置通知不能修改返回值,但可以获得返回值
+ * 环绕通知可以获得并修改返回值
+ */
+public class MyAspect {
+
+	public void MyAspect(){
+		
+	}
+	
+	//前置通知
+	public void before() {
+		
+		System.out.println("执行前置通知方法");
+	}
+	
+	//JoinPoint是切入点表达式
+	public void before(JoinPoint jp) {
+		
+		System.out.println("执行前置通知方法"+jp);
+	}
+	
+	//后置通知
+	public void afterReturning(){
+		
+		System.out.println("执行后置通知方法");
+	}
+	
+	//后置通知
+	public void afterReturning(Object result){
+		
+		//result是返回值
+		System.out.println("执行后置通知方法 result = "+result);
+	}
+	
+	//环绕通知
+	public Object myAround(ProceedingJoinPoint pjp) throws Throwable{
+		
+		System.out.println("执行环绕通知方法,目标方法执行之前");
+		//result是目标方法,pjp.proceed()表示执行目标方法
+		Object result=pjp.proceed();
+		System.out.println("执行环绕通知方法,目标方法执行之后");
+		//修改返回值
+		if(result!=null){
+			
+			result=result.toString().toUpperCase();
+			return result;
+		}
+		return result;
+	}
+	
+	//异常通知方法
+	public void myAfterThrowing(Exception ex){
+		
+		System.out.println("执行异常通知方法ex = "+ex.getMessage());
+	}
+	
+	//最终通知,不管目标方法是否发生异常都会执行
+	public void after(){
+		
+		System.out.println("执行最终通知方法");
+	}
+	
+	//定义切入点,叫 doThirdPointcut()
+	public void doThirdPointcut(){}
+}

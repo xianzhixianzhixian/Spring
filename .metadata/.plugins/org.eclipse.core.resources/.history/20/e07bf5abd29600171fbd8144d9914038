@@ -1,0 +1,39 @@
+/**
+ * 作者：樊钰丰
+ * 时间：2017.9.11
+ * 功能：Spring的事务管理
+ */
+
+package com.buyStock.test;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.buyStock.service.IBuyStockService;
+
+public class MyTest {
+	
+	private IBuyStockService service;
+	
+	@Before
+	public void before(){
+		String resource="applicationContext.xml";
+		ApplicationContext applicationContext=new ClassPathXmlApplicationContext("resource");
+		service=applicationContext.getBean("myService");
+	}
+	
+	
+	
+	@Test
+	public void test(){
+		
+	}
+	
+	@After
+	public void after(){
+		
+	}
+}

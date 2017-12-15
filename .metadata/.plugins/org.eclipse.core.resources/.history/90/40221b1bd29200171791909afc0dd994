@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- 注册Student -->
+    <bean id="baseStudent" class="com.spring.di11.Student" abstract="true">
+    	<property name="school" value="清华大学"/>
+    	<property name="department" value="计算机科学与技术学院"/>
+    </bean>
+    
+    <!-- 继承baseStudent的两个共同属性 -->
+    <bean id="myStudent" parent="baseStudent">
+    	<property name="name" value="麻二"/>
+    	<property name="age" value="2"/>
+    </bean>
+    <bean id="myStudent2" parent="baseStudent">
+    	<property name="name" value="麻三"/>
+    	<property name="age" value="3"/>
+    </bean>
+    <bean id="myStudent3" parent="baseStudent">
+    	<property name="name" value="麻四"/>
+    	<property name="age" value="4"/>
+    </bean>
+</beans>

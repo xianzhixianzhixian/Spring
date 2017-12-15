@@ -1,0 +1,29 @@
+/**
+ * 作者：樊钰丰
+ * 时间：2017.9.6
+ * 功能：AfterReturningAdvice实现类,目标方法执行后前执行
+ */
+
+package com.aop.aop08;
+
+import java.lang.reflect.Method;
+
+import org.springframework.aop.AfterReturningAdvice;
+
+public class MyAfterReturningAdvice implements AfterReturningAdvice {
+
+	/**
+	 * 后置通知方法,当前方法在目标方法执行之后执行
+	 * 后置通知可以获取到目标方法的返回结果,但无法改变目标方法的结果
+	 * method：目标方法
+	 * args：目标方法的参数列表
+	 * target：目标对象
+	 * returnValue：目标方法的返回值
+	 */
+	@Override
+	public void afterReturning(Object returnValue, Method method, Object[] args, Object target) throws Throwable {
+		// TODO Auto-generated method stub
+		System.out.println("执行后置通知方法,returnValue = "+ returnValue);
+	}
+
+}

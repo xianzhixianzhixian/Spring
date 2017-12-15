@@ -1,0 +1,9 @@
+package com.buyStock.service;
+
+public interface IBuyStockService {
+
+	void openAccount(String aname, double money);
+	void openStock(String sname, int amount);
+	
+	void buyStock();
+}

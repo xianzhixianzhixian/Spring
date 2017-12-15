@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <uri name="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd&quot;" uri="file:///C:/Users/KevinSmith/Desktop/SSM/其它所需文件/spring-framework-4.3.9.RELEASE-dist/spring-framework-4.3.9.RELEASE/schema/aop/spring-aop-4.3.xsd"/>
+  <uri name="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" uri="file:///C:/Users/KevinSmith/Desktop/SSM/其它所需文件/spring-framework-4.3.9.RELEASE-dist/spring-framework-4.3.9.RELEASE/schema/beans/spring-beans-4.3.xsd"/>
+  <uri name="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd" uri="file:///C:/Users/KevinSmith/Desktop/SSM/其它所需文件/spring-framework-4.3.9.RELEASE-dist/spring-framework-4.3.9.RELEASE/schema/context/spring-context-4.3.xsd"/>
+  <uri name="http://www.springframework.org/schema/tx/spring-tx.xsd" uri="file:///C:/Users/KevinSmith/Desktop/SSM/其它所需文件/spring-framework-4.3.9.RELEASE-dist/spring-framework-4.3.9.RELEASE/schema/tx/spring-tx-4.3.xsd"/>
+</catalog>

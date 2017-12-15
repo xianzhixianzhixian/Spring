@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- 注册School -->
+    <bean id="mySchool" class="com.spring.di05.School">
+    	<property name="name" value="清华大学"/>
+    </bean>
+    <bean id="mySchool2" class="com.spring.di05.School">
+    	<property name="name" value="北京大学"/>
+    </bean>
+    
+    <!-- 注册Student -->
+    <!-- 对于基本数据类型用value,对于类数据类型用ref -->
+    <!-- 在工作中设值注入时最常用的,构造注入基本不用 -->
+    <bean id="mySome" class="com.spring.di05.Some">
+    	<!-- School数组,元素School -->
+    	<property name="schools">
+    		<array>
+    			<ref bean="mySchool"/>
+    			<ref bean="mySchool2"/>
+    		</array>
+    	</property>
+    	
+    	<!-- String数组,元素String -->
+    	<property name="myStrs" value="中国,北京">
+    		<array>
+    			<value></value>
+    			<value>北京</value>
+    		</array>
+    	</property>
+    	
+    	<!-- List集合,元素String -->
+    	<property name="myList">
+    		<list>
+    			<value>大兴</value>
+    			<value>亦庄</value>
+    		</list>
+    	</property>
+    	
+    	<!-- Set集合,元素String -->
+    	<property name="mySet">
+    		<set>
+    			<value>大族企业湾</value>
+    			<value>100号</value>
+    		</set>
+    	</property>
+    	
+    	<!-- Map集合,元素<String,Object> -->
+    	<property name="myMap">
+    		<map>
+    			<entry key="mobile" value="123456"></entry>
+    			<entry key="qq" value="654321"></entry>
+    		</map>
+    	</property>
+    	
+    	<!-- Properties数据 -->
+    	<property name="myPros">
+    		<props>
+    			<prop key="education">大学</prop>
+    			<prop key="subject">计算机科学与技术</prop>
+    		</props>
+    	</property>
+    </bean>
+</beans>

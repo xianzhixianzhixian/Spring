@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+     <!-- 注册Service：静态工厂Bean -->
+     <!-- 
+     	scope：singleton(单例模式),其对象的创建实际是在spring容器初始化时创建,在代码中真正访问时才返回     -饿汉模式
+		prototype(原型模式),其对象的创建实际不是在spring容器初始化时创建,而是在代码中真正访问时才创建       -懒汉模式
+	 -->
+    <bean id="myService" class="com.spring.ba04.ServiceFactory" factory-method="getSomeService" scope="prototype"/>
+</beans>

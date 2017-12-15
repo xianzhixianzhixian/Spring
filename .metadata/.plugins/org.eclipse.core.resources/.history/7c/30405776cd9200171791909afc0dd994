@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- 注册Person -->
+    <bean id="myPerson" class="com.spring.di09.Person">
+    	<property name="pname" value="麻六"></property>
+    	<!-- Person的年龄是某个范围内的随机数 -->
+    	<property name="page" value="#{T(java.lang.Math).random%50+1}"></property>
+    </bean>
+    
+    <bean id="myStudent" class="com.spring.di09.Student" autowire="byType">
+    	<property name="name" value="张三"/>
+    	<property name="age" value="3"/>
+    </bean>
+</beans>

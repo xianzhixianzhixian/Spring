@@ -1,0 +1,18 @@
+package com.buyStock.dao;
+
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+
+public class StockDaoImpl extends JdbcDaoSupport implements IStockDao {
+
+	@Override
+	public void insertStock(String sname, int amount) {
+		String sql="insert into stock(sname, count) values(?,?)";
+		this.getJdbcTemplate().update(sql,sname,amount);
+	}
+	
+	@Override
+	public void updateStok(String aname, int amount, boolean isBuy) {
+		// TODO Auto-generated method stub
+		
+	}
+}

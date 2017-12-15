@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+	<!-- 
+		注册顺序：
+		数据源 ==> JdbcTemplate ==> Dao ==> Service
+	 -->
+	
+	<!-- 注册属性文件：方式二,常用 -->
+	<context:property-placeholder location="classpath:mysql.properties"/>
+	
+	<!-- 配置数据源 -->
+	<bean id="myDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driver}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+	</bean>
+	
+	<!-- 注册数据源：C3P0的连接池 -->
+	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test"/>
+		<property name="user" value="root"/>
+		<property name="password" value="123456"/>
+	</bean>
+	<!--  注册Dao -->
+	<bean id="studentDao" class="com.jdbcTemplate.dao.StudentDaoImpl">
+		<property name="jdbcTemplate" ref="myJdbcTemplate"/>
+	</bean>
+	 -->
+	
+	<!-- 直接使用DataSource注册Dao即可 -->
+	<bean id="studentDao" class="com.jdbcTemplate.dao.StudentDaoImpl">
+		<property name="dataSource" ref="myDataSource"/>
+	</bean>
+	
+	<!-- 注册Service -->
+	<bean id="studentService" class="com.jdbcTemplate.service.StudentServiceImpl">
+		<property name="dao" ref="studentDao"/>
+	</bean>
+	
+</beans>

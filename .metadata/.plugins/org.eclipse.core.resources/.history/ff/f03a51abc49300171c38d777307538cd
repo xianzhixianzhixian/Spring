@@ -1,0 +1,16 @@
+package com.aop.aop05;
+
+//目标类
+public class SomeServiceImpl implements ISomeService {
+
+	@Override
+	public void login(String username, String password) throws UserException {
+		// TODO Auto-generated method stub
+		if(!"北京".equals(username)){
+			throw new UsernameException();
+		}
+		if(!"123456".equals(password)){
+			throw new PasswordException();
+		}
+	}
+}

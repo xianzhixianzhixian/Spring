@@ -1,0 +1,5 @@
+package com.spring.di08;
+
+public class PrimarySchool extends School{
+
+}

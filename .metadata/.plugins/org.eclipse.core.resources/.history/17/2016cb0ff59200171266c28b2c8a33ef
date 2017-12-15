@@ -1,0 +1,25 @@
+package com.aop.service;
+
+public class SomeServiceImpl implements ISomeService {
+
+	@Override
+	public void doFirst() {
+		// TODO Auto-generated method stub
+		doTx();
+		System.out.println("doFirst()");
+		doLog();
+	}
+	@Override
+	public void doSecond() {
+		doTx();
+		System.out.println("doSecond()");
+		doLog();
+	}
+	private void doLog() {
+		System.out.println("执行日志代码");
+	}
+
+	private void doTx() {
+		System.out.println("执行事务代码");
+	}
+}

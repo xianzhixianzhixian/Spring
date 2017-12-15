@@ -1,0 +1,28 @@
+/**
+ * 作者：樊钰丰
+ * 时间：2017.9.5
+ * 功能：设值注入,在工作中设值注入时最常用的,构造注入基本不用
+ * 需要有set方法
+ */
+
+package com.spring.di06;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"com/spring/di01/applicationContext.xml"} )
+public class MyTest {
+	
+	@Autowired
+	private Student student;
+	@Test
+	public void test(){
+		
+		//System.out.println(student);
+	}
+}

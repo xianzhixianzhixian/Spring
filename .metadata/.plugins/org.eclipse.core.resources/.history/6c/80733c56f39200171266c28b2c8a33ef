@@ -1,0 +1,17 @@
+package com.aop.service;
+
+public class SomeServiceImpl implements ISomeService {
+
+	@Override
+	public void doFirst() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void doSecond() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

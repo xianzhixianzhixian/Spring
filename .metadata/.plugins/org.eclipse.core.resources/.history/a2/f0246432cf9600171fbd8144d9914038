@@ -1,0 +1,17 @@
+package com.buyStock.dao;
+
+public class StockDaoImpl implements IStockDao {
+
+	@Override
+	public void insertStock(String sname, int amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateStok(String aname, double money, boolean isBuy) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

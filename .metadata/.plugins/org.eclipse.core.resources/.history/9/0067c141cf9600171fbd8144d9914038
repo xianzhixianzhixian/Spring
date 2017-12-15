@@ -1,0 +1,19 @@
+package com.buyStock.dao;
+
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+
+public class AccountDaoImpl extends JdbcDaoSupport implements IAccountDao {
+
+	@Override
+	public void insertAccount(String aname, double money) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void updateAccount(String aname, double money, boolean isBuy) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

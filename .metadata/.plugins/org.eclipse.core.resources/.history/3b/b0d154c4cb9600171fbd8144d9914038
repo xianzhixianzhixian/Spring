@@ -1,0 +1,14 @@
+/**
+ * 作者：樊钰丰
+ * 时间：2017.9.11
+ * 功能：股票账户实体类
+ */
+
+package com.buyStock.beans;
+
+public class Stock {
+
+	private Integer aid;
+	private String aname;
+	private double balance; //账户余额
+}

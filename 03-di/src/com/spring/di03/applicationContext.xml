@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 注意xmlns:p是后来添加进去的p命名空间需要的部分 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- 注册School -->
+    <bean id="mySchool" class="com.spring.di03.School" p:name="北京大学"/>
+    
+    <!-- 注册Student -->
+    <!-- 对于基本数据类型用value,对于类数据类型用ref -->
+    <!-- 在工作中设值注入时最常用的,构造注入基本不用 -->
+    <bean id="myStudent" class="com.spring.di03.Student" p:name="王五" p:age="25" p:school-ref="mySchool"/>
+</beans>

@@ -1,0 +1,50 @@
+/**
+ * 作者：樊钰丰
+ * 时间：2017.9.10
+ * 功能：IStudentDao接口实现类
+ */
+
+package com.jdbcTemplate.dao;
+
+import java.util.List;
+
+import com.jdbcTemplate.bean.Student;
+
+public class StudentDaoImpl implements IStudentDao {
+
+	@Override
+	public void insertStudent(Student student) {
+
+	}
+
+	@Override
+	public void deleteById(int id) {
+
+	}
+
+	@Override
+	public void updateStudent(Student student) {
+
+	}
+
+	@Override
+	public List<String> selectAllStudentNames() {
+		return null;
+	}
+
+	@Override
+	public String selectStudentNameById(int id) {
+		return null;
+	}
+
+	@Override
+	public List<Student> selectAllStudents() {
+		return null;
+	}
+
+	@Override
+	public Student selectStudentById(int id) {
+		return null;
+	}
+
+}

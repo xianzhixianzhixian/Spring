@@ -1,0 +1,20 @@
+/**
+ * 作者：樊钰丰
+ * 时间：2017.9.6
+ * 功能：目标方法发生异常后执行
+ */
+
+package com.aop.aop04;
+
+import org.springframework.aop.ThrowsAdvice;
+
+//异常通知
+public class MyThrowsAdvice implements ThrowsAdvice {
+
+	/**
+	 * 异常通知：当目标方法抛出与指定类型异常具有is-a关系时,执行当前方法
+	 */
+	 public void afterThrowing(Exception ex){
+		 System.out.println("执行异常通知");
+	 }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- 
+    	注册School
+    	当对域属性进行自动注入的时候,注意这里的id名要和Student中的School对象的成员变量名相同
+     -->
+    <bean id="school" class="com.spring.di08.School">
+    	<property name="name" value="清华大学"/>
+    </bean>
+    
+    <!-- 
+    	注册Student
+    	autowire="byType"会从容器中查找与实体类的域属性同名的Bean的id,并将该Bean对象自动注入给该域属性
+     -->
+    <bean id="myStudent" class="com.spring.di08.Student" autowire="byType">
+    	<property name="name" value="张三"/>
+    	<property name="age" value="3"/>
+    </bean>
+</beans>

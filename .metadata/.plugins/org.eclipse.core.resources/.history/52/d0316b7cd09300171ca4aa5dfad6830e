@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">  
+	
+	<!-- 注册SomeServiceImpl目标对象 -->
+	<bean id="someService" class="com.aop.aop10.SomeServiceImpl"/>
+	
+	<!-- 注册切面：通知 -->
+	<bean id="afterReturningAdvice" class="com.aop.aop10.MyAfterReturningAdvice"/>
+	
+	<!-- 注册切面：顾问 -->
+	<bean id="myAdvisor" class="org.springframework.aop.support.RegexMethodPointcutAdvisor">
+		<!-- 指定要管理的通知对象 -->
+		<property name="advice" ref="afterReturningAdvice"></property>
+		<!-- 正则表达式指定切入点 -->
+		<property name="mappedNames"
+	</bean>
+	
+	<!-- 生成代理对象 -->
+	<!-- JDKProxy要求目标类实现接口 -->
+	<bean id="serviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<!-- 指定目标对象 -->
+		<!-- 下面两个用哪个都行 -->
+		<!-- <property name="targetName" value="someService"/> -->
+		<property name="target" ref="someService"/>
+		
+		<!-- 指定切面为顾问 -->
+		<property name="interceptorNames" value="myAdvisor"/>
+	</bean>
+</beans>

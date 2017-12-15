@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- ============================IoC============================= -->
+	<!-- 注册属性文件：常用 -->
+	<context:property-placeholder location="classpath:mysql.properties"/>
+
+	<!-- 注册数据源：C3P0的连接池 -->
+	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test"/>
+		<property name="user" value="root"/>
+		<property name="password" value="123456"/>
+	</bean>
+	
+	<!-- 直接使用DataSource注册Dao即可 -->
+	<bean id="accountDao" class="com.buyStock.dao.AccountDaoImpl">
+		<property name="dataSource" ref="myDataSource"/>
+	</bean>
+	
+	<bean id="stockDao" class="com.buyStock.dao.StockDaoImpl">
+		<property name="dataSource" ref="myDataSource"/>
+	</bean>
+	
+	<!-- 注册Service -->
+	<bean id="buyStockService" class="com.buyStock.service.BuyStockServiceImpl">
+		<property name="adao" ref="accountDao"/>
+		<property name="sdao" ref="stockDao"/>
+	</bean>
+	
+	<!-- ============================AOP============================= -->
+	<!-- 注册事务管理器 -->
+	<bean id="myTransactionManager" class="org.springframework.transaction.PlatformTransactionManager">
+		<property name="dataSource" ref="myDataSource"/>
+	</bean>
+	<!-- 注册事务代理 -->
+	<bean id="serviceProxy" class="import org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager" ref="myTransactionManager"/>
+		<property name="target" ref="buyStockService"/>
+		<property name="teansactionAttributes">
+			<props>
+				<prop key="open*">ISOLATION_DEFAULT</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

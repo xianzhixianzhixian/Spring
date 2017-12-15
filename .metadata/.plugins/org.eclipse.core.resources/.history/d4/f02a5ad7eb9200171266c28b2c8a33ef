@@ -1,0 +1,41 @@
+/**
+ * 作者：樊钰丰
+ * 时间：2017.9.6
+ * 功能：spring自带的JUnit
+ */
+
+package com.spring.di06;
+
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"com/spring/di06/applicationContext.xml"})
+public class MyTest {
+	
+	@Before
+	public void before(){
+		
+	}
+	
+	@Test
+	public void test(){
+		
+		//创建容器对象,加载spring配置文件
+		String resource="";
+		ApplicationContext applicationContext=new ClassPathXmlApplicationContext(resource);
+		Some student=(Some) applicationContext.getBean("mySome");
+		System.out.println(student);
+	}
+	
+	@After
+	public void after(){
+		
+	}
+}

@@ -1,0 +1,9 @@
+package com.buyStock.dao;
+
+public interface IStockDao {
+
+	void insertStock(String sname, int amount);
+
+	void updateStok(String aname, int amount, boolean isBuy);
+
+}

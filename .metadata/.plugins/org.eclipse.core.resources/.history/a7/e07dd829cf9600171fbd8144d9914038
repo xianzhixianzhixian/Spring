@@ -1,0 +1,17 @@
+package com.buyStock.dao;
+
+public class AccountDaoImpl implements IAccountDao {
+
+	@Override
+	public void insertAccount(String aname, double money) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void updateAccount(String aname, double money, boolean isBuy) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.buyStock.service;
+
+public class BuyStockException extends Exception {
+
+}

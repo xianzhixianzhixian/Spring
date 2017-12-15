@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Wed Sep 13 00:40:58 CST 2017
+org.eclipse.jst.jee.server\:18-spring-web-servletcontext=D\:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\wtpwebapps\\18-spring-web-servletcontext
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\KevinSmith\\Desktop\\SSM\\spring\\eclipse\\18-spring-web-servletcontext\\WebContent\\WEB-INF\\lib\\spring-web-4.3.9.RELEASE.jar=D\:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\wtpwebapps\\18-spring-web-servletcontext\\WEB-INF\\lib\\spring-web-4.3.9.RELEASE.jar

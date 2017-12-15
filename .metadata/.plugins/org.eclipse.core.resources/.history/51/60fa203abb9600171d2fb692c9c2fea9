@@ -1,0 +1,24 @@
+package com.jdbcTemplate.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.jdbc.core.RowMapper;
+
+import com.jdbcTemplate.bean.Student;
+
+public class StudentRowMapper implements RowMapper<Student> {
+
+	/**
+	 * 这里的rs代表：
+	 * 当查询出总的结果集后,框架会自动遍历该结果集
+	 * 每一次遍历的一行数据,都会存放到
+	 */
+	@Override
+	public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
+		// TODO Auto-generated method stub
+		
+		return null;
+	}
+
+}

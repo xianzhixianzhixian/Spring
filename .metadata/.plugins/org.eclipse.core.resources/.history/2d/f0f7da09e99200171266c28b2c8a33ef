@@ -1,0 +1,8 @@
+package com.spring.di05;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration   //表示当前类充当Spring容器,即所有的Bean将由该类来创建
+public class MyJavaConfig {
+
+}

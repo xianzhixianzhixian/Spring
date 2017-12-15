@@ -1,0 +1,42 @@
+/**
+ * 作者：樊钰丰
+ * 时间：2017.9.7
+ * 功能：aop顾问,当前代码存在的问题：
+ * 1、若存在多个目标对象,就需要使用多次ProxyFactoryBean来创建多个代理对象,这会使配置文件变得臃肿,不便于管理
+ * 2、用户真正想调用的是目标对象,而真正可以调用的是代理对象,这不符合逻辑
+ * 以上两个问题均为ProxyFactoryBean类的功能太简单引起的
+ * 
+ * 第二种自动代理生成器的使用
+ * org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator
+ */
+
+package com.aop.aop12;
+
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class MyTest {
+	
+	@Test
+	public void test(){
+		String resource="com/aop/aop11/applicationContext.xml";
+		ApplicationContext applicationContext=new ClassPathXmlApplicationContext(resource);
+		
+		//此处应该获取代理
+		ISomeService someService=(ISomeService) applicationContext.getBean("someService");
+		someService.doFirst();
+		System.out.println("==============================");
+		someService.doSecond();
+		System.out.println("==============================");
+		someService.doThird();
+		
+		System.out.println("------------------------------");
+		ISomeService someService2=(ISomeService) applicationContext.getBean("someService2");
+		someService2.doFirst();
+		System.out.println("==============================");
+		someService2.doSecond();
+		System.out.println("==============================");
+		someService2.doThird();
+	}
+}

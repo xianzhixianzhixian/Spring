@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- 注册Student -->
+    <!-- 对于基本数据类型用value,对于类数据类型用ref -->
+    <!-- 在工作中设值注入时最常用的,构造注入基本不用 -->
+    <bean id="myStudent" class="com.spring.di10.Student">
+    	<property name="name" value="张三"/>
+    	<property name="age" value="3"/>
+    	<property name="school">
+    		<!-- 注册内部Bean School -->
+		    <bean id="mySchool" class="com.spring.di10.School">
+		    	<property name="name" value="清华大学"/>
+		    </bean>
+    	</property>
+    </bean>
+</beans>

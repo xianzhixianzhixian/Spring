@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">  
+	
+	<!-- 注册SomeServiceImpl目标对象 -->
+	<bean id="someService" class="com.aop.aop12.SomeServiceImpl"/>
+	<bean id="someService2" class="com.aop.aop12.SomeServiceImpl"/>
+	
+	<!-- 注册切面：通知 -->
+	<bean id="afterReturningAdvice" class="com.aop.aop12.MyAfterReturningAdvice"/>
+	
+	<!-- 注册切面：顾问,在默认自动代理生成器条件下,id不起作用,即所有的顾问都会起作用 -->
+	<bean id="myAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+		<!-- 指定要管理的通知对象 -->
+		<property name="advice" ref="afterReturningAdvice"/>
+		<property name="mappedNames" value="doFirst"/>
+	</bean>
+	
+	<!-- 注册自动代理生成器 -->
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames" value="myAdvisor"/>
+		<property name="interceptorNames" value="afterReturningAdvice"/>
+	</bean>
+</beans>

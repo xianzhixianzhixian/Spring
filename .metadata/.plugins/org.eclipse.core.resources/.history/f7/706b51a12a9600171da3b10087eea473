@@ -1,0 +1,53 @@
+/**
+ * 作者：樊钰丰
+ * 时间：2017.9.10
+ * 功能：切面PROJO类
+ */
+
+package com.aspectj.annotation;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+
+@Aspect   //表示当前类为切面
+public class MyAspect {
+
+	//前置通知
+	@Before(value = "execution(* *..ISomeService.doFirst(..))")
+	public void before() {
+		
+		System.out.println("执行前置通知方法");
+	}
+	
+	//JoinPoint是切入点表达式
+	@Before(value = "execution(* *..ISomeService.doFirst(..))")
+	public void before(JoinPoint jp) {
+		
+		System.out.println("执行前置通知方法"+jp);
+	}
+	
+	//后置通知
+	@AfterReturning(value = "execution(* *..ISomeService.doSecond(..))")
+	public void afterReturning(){
+		
+		System.out.println("执行后置通知方法");
+	}
+	
+	//后置通知
+	@AfterReturning(value = "execution(* *..ISomeService.doSecond(..))", returning="result")
+	public void afterReturning(Object result){
+		
+		System.out.println("执行后置通知方法 result = "+result);
+	}
+	
+	//环绕通知
+	@Around(value = "execution(* *..ISomeService.doThidd(..))")
+	public void myAround(){
+		
+		System.out.println("执行环绕通知方法,目标方法执行之前");
+		System.out.println("执行环绕通知方法,目标方法执行之后");
+	}
+}

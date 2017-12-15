@@ -1,0 +1,26 @@
+/**
+ * 作者：樊钰丰
+ * 时间：2017.9.6
+ * 功能：spring自带的JUnit
+ */
+
+package com.spring.di06;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.spring.di05.Student;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:com/spring/di06/applicationContext.xml"})
+public class MyTest {
+	
+	private Student student;
+	@Test
+	public void test(){
+		
+		//System.out.println(student);
+	}
+}

@@ -1,0 +1,19 @@
+package com.buyStock.service;
+
+public class BuyStockServiceImpl implements IBuyStockService {
+
+	@Override
+	public void openAccount(String aname, double money) {
+	}
+
+	@Override
+	public void openStock(String sname, int amount) {
+
+	}
+
+	@Override
+	public void buyStock(String aname, double money, String sname, int account) {
+
+	}
+
+}

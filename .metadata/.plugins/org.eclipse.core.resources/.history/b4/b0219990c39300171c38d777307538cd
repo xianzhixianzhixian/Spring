@@ -1,0 +1,6 @@
+package com.aop.aop05;
+
+public class UsernameException extends UserException {
+
+	
+}

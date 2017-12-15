@@ -1,0 +1,17 @@
+package com.buyStock.dao;
+
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+
+public class AccountDaoImpl extends JdbcDaoSupport implements IAccountDao {
+
+	@Override
+	public void insertAccount(String aname, double money) {
+		this.getJdbcTemplate()
+	}
+
+	@Override
+	public void updateAccount(String aname, double money, boolean isBuy) {
+		this.getJdbcTemplate()
+	}
+
+}

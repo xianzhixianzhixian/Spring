@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- 注册School,设值注入 -->
+    <bean id="mySchool" class="com.spring.di04.School" c:name="清华大学"/>
+    
+    <!-- 注册Student,构造注入 -->
+    <!-- 对于基本数据类型用value,对于类数据类型用ref -->
+    <bean id="myStudent" class="com.spring.di04.Student" c:name="赵六" c:age="26" c:school-ref="mySchool"/>
+</beans>

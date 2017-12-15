@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    
+    <!-- 注册Student -->
+    <bean id="myStudent" class="com.spring.di12.Student">
+    	<property name="school" value="清华大学"/>
+    	<property name="department" value="计算机科学与技术学院"/>
+    	<property name="name" value="麻二"/>
+    	<property name="age" value="2"/>
+    </bean>
+    
+    <!-- 注册Teacher -->
+    <bean id="myTeacher" class="com.spring.di12.Teacher">
+    	<property name="school" value="清华大学"/>
+    	<property name="department" value="计算机科学与技术学院"/>
+    	<property name="name" value="大神"/>
+    	<property name="workage" value="30"/>
+    </bean>
+</beans>

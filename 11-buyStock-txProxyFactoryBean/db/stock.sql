@@ -1,0 +1,5 @@
+CREATE DATABASE `test`;
+USE `test`;
+DROP TABLE stock;
+
+CREATE TABLE stock (sid int NOT NULL AUTO_INCREMENT, sname varchar(50) NOT NULL, count int(5) NOT NULL, PRIMARY KEY (sid)) ENGINE=InnoDB DEFAULT CHARSET=utf8;

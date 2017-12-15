@@ -1,0 +1,37 @@
+package com.buyStock.dao;
+
+import com.buyStock.service.IBuyStockService;
+
+public class AccountDaoImpl implements IAccountDao, IBuyStockService {
+
+	@Override
+	public void openAccount(String aname, double money) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void openStock(String sname, int amount) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void buyStock(String aname, double money, String sname, int account) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void insertAccount(String aname, double money) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void updateAccount(String aname, double money, boolean isBuy) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

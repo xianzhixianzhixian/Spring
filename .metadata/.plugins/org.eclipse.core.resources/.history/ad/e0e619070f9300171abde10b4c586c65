@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd">  
+	
+	<!-- 注册SomeServiceImpl目标对象 -->
+	<bean id="someService" class="com.aop.aop03.SomeServiceImpl"/>
+	
+	<!-- 注册切面：通知 -->
+	<bean id="afterReturningAdvice" class="com.aop.aop03.MyAfterReturningAdvice"/>
+	
+	<!-- 生成代理对象 -->
+	<!-- JDKProxy要求目标类实现接口 -->
+	<bean id="serviceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<!-- 指定目标对象 -->
+		<!-- 下面两个用哪个都行 -->
+		<!-- <property name="targetName" value="someService"/> -->
+		<property name="target" ref="someService"/>
+		
+		<!-- 指定切面 -->
+		<property name="interceptorNames" value="afterReturningAdvice"/>
+	</bean>
+</beans>

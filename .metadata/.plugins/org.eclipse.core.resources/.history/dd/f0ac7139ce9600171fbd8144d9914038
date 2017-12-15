@@ -1,0 +1,7 @@
+package com.buyStock.dao;
+
+public interface IAccountDao {
+
+	void insertAccount(String aname, double money);
+
+}

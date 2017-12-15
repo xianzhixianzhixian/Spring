@@ -1,0 +1,30 @@
+/**
+ * 作者：樊钰丰
+ * 时间：2017.9.7
+ * 功能：aop指定出现某种异常再通知
+ */
+
+package com.aop.aop05;
+
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class MyTest {
+	
+	/**
+	 * try catch捕获异常,虚拟机不知道异常
+	 * throws 抛出异常,虚拟机知道异常发生
+	 * @throws UserException
+	 */
+	@Test
+	public void test() throws UserException{
+		String resource="com/aop/aop05/applicationContext.xml";
+		ApplicationContext applicationContext=new ClassPathXmlApplicationContext(resource);
+		
+		//此处应该获取代理
+		ISomeService someService=(ISomeService) applicationContext.getBean("serviceProxy");
+		
+		System.out.println(someService.login("root", "123456"));
+	}
+}

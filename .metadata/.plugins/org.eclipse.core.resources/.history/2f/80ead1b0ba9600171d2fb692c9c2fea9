@@ -1,0 +1,7 @@
+package com.jdbcTemplate.dao;
+
+import org.springframework.jdbc.core.RowMapper;
+
+public class StudentRowMapper implements RowMapper<T> {
+
+}

@@ -1,0 +1,5 @@
+package com.buyStock.dao;
+
+public class StockDaoImpl {
+
+}

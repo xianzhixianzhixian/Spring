@@ -1,0 +1,5 @@
+package com.aop.aop05;
+
+public class UserException extends Exception {
+
+}

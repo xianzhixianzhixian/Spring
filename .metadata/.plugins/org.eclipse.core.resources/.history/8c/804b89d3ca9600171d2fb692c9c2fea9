@@ -1,0 +1,33 @@
+/**
+ * 作者：樊钰丰
+ * 时间：2017.9.11
+ * 功能：Spring的事务管理
+ */
+
+package com.jdbcTemplate.test;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class MyTest {
+	
+
+	@Before
+	public void before(){
+		
+		String resource="applicationContext.xml";
+	}
+	
+	
+	
+	@Test
+	public void test(){
+		
+	}
+	
+	@After
+	public void after(){
+		
+	}
+}

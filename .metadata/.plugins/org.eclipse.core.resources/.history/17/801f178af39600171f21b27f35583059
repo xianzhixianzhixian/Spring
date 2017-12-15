@@ -1,0 +1,46 @@
+/**
+ * 作者：樊钰丰
+ * 时间：2017.9.11
+ * 功能：Spring的事务管理,使用Spring注解式开发
+ */
+
+package com.buyStock.test;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+
+import com.buyStock.service.BuyStockException;
+import com.buyStock.service.IBuyStockService;
+
+public class MyTest {
+	
+	private IBuyStockService service;
+	
+	@Before
+	public void before(){
+		String resource="applicationContext.xml";
+		ApplicationContext applicationContext=new ClassPathXmlApplicationContext(resource);
+		service=(IBuyStockService) applicationContext.getBean("serviceProxy");
+	}
+	
+//	@Test
+//	public void test(){
+//		service.openAccount("先知", 10000000);
+//		service.openStock("航天科技", 0);
+//		
+//	}
+	
+	@Test
+	public void buy() throws BuyStockException{
+		service.buyStock("先知", 2000, "航天科技", 100);
+	}
+	
+	@After
+	public void after(){
+		
+	}
+}

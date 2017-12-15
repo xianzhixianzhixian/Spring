@@ -1,0 +1,11 @@
+/**
+ * 作者：樊钰丰
+ * 时间：2017.9.11
+ * 功能：银行账户实体
+ */
+
+package com.buyStock.beans;
+
+public class Account {
+
+}

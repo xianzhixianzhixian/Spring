@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
+	<!-- 注册切面 -->
+	<bean id="myAspect" class="com.aspectj.xml.MyAspect"/>
+	
+	<!-- 注册目标对象 -->
+	<bean id="someService" class="com.aspectj.xml.SomeServiceImpl"/>
+	
+	<!-- AOP配置 -->
+	<!-- 注册AspectJ的自动代理 -->
+	<aop:config>
+		
+		<!-- 切面 -->
+		<aop:aspect ref="myAspect">
+			<!-- 定义切入点 -->
+			<aop:pointcut expression="execution(* *..ISomeService.doFirst(..))" id="doFirstPointCut"/>
+			<aop:pointcut expression="execution(* *..ISomeService.doSecond(..))" id="doSecondPointCut"/>
+			<aop:pointcut expression="execution(* *..ISomeService.doThird(..))" id="doThirdPointCut"/>
+			
+			
+			
+			
+			<!-- 前置通知 -->
+			<aop:before method="before" pointcut-ref="doFirstPointCut"/>
+			<aop:before method="before(org.aspectj.lang.JoinPoint)" pointcut-ref="doFirstPointCut"/>
+			
+			<!-- 后置通知 -->
+			<aop:before method="afterReturning" pointcut-ref="doSecondPointCut"/>
+			<aop:before method="afterReturning(java.lang.Object)" pointcut-ref="doSecondPointCut"/>
+		</aop:aspect>
+	</aop:config>
+	
+</beans>

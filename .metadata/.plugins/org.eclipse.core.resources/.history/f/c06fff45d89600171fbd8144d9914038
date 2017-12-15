@@ -1,0 +1,16 @@
+package com.buyStock.service;
+
+public class BuyStockException extends Exception {
+
+	public BuyStockException() {
+		super();
+		throw new BuyStockException("出现异常");
+	}
+
+	public BuyStockException(String arg0) {
+		super(arg0);
+		// TODO Auto-generated constructor stub
+	}
+
+	
+}
